@@ -1,6 +1,6 @@
 export default {
   translation: {
-    enterMessage: 'Введите сообщение...',
+    converter: 'Конвертер валют',
     delete: 'Удалить',
     rename: 'Переименовать',
     invalidName: 'Неверные имя пользователя или пароль',
