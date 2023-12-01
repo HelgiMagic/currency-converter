@@ -1,9 +1,14 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(./public/Montserrat-Regular.ttf);
+}
+
 * {
   box-sizing: border-box;
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -72,16 +77,28 @@ button:focus-visible {
 }
 
 .converter {
-  background: rgba(2, 127, 212, 0.3);
+  border: 1px solid #ebebee;
+  box-shadow: 0 0px 15px rgba(99,91,255, 0.2);
+  background: #FAFAFC;
   border-radius: 12px;
   height: 20%;
   margin: 20px 10px;
+}
+
+.converter h3 {
+  color: black;
+  font-weight: 500;
 }
 
 .converter-row {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 15px;
+}
+
+.converter-row__group {
+  display: flex;
   gap: 15px;
 }
 
@@ -96,10 +113,9 @@ button:focus-visible {
   line-height: 1.5;
 
   color: #495057;
-  background-color: #fff;
   background-clip: padding-box;
 
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #635bff;
   border-radius: 40px;
 
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -109,18 +125,38 @@ button:focus-visible {
 .card {
   display: flex;
   background-color: white;
+  color: black;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
   width: 200px;
   height: 230px; 
-  border-radius: 5px;
+  border-radius: 20px;
+  border: 1px solid rgba(168, 168, 168, 0.3);
   padding: 10px 20px;
 }
 
 .orange {
   border: 1px solid #ff6b00;
+  box-shadow: 0 0px 15px rgba(255, 107, 0, 0.2);
+}
+
+.blue {
+  border: 1px solid #0077b6;
+  box-shadow: 0 0px 15px rgba(0, 119, 182, 0.2);
+
+}
+
+.red {
+  border: 1px solid #e63946;
+  box-shadow: 0 0px 15px rgba(230, 57, 70, 0.2);
+}
+
+.currencies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+  justify-content: center;
 }
 
 .card p {
@@ -130,4 +166,49 @@ button:focus-visible {
 .card__text {
   font-weight: 600px;
   font-size: 2rem;
+}
+
+@media (max-width: 573px) {
+  #root {
+    max-width: 100vw;
+    padding: 0;
+  }
+
+  .container {
+    height: auto;
+    width: 100vw;
+  }
+
+  .converter {
+    height: 300px;
+  }
+
+  .converter-row {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .converter-group {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .chronicle-button {
+    width: 40% !important;
+    order: 0;
+  }
+
+  .input {
+    width: 60% !important;
+    order: 1;
+  }
+
+  .currencies {
+    gap: 5px;
+  }
+  
+  .card {
+    width: 45vw;
+  }
+
 }

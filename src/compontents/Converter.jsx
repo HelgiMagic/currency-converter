@@ -3,7 +3,6 @@ import routes from "../routes";
 import axios from "axios";
 //import { useEffect } from "react";
 
-const rates = {};
 
 const func = async () => {
   const response = await axios.get(routes.getList());
@@ -17,16 +16,20 @@ const func = async () => {
   console.log(response.data.data);
 };
 
-export default function Converter() {
+export default function Converter({ rates }) {
   return (
     <div className='converter'>
       <h3>Перевести</h3>
       <div className='converter-row'>
-        <SelectButton>RUB</SelectButton>
-        <input type='text' className='input' />
+        <div className='converter-row__group'>
+          <SelectButton>RUB</SelectButton>
+          <input type='text' className='input' />
+        </div>
         <h3>в</h3>
-        <input type='text' className='input' />
-        <SelectButton>USD</SelectButton>
+        <div className='converter-row__group'>
+          <input type='text' className='input' />
+          <SelectButton>USD</SelectButton>
+        </div>
       </div>
     </div>
   );
