@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import routes from "../routes";
 
-const round = (num) => Math.round(num * 10) / 10;
+const round1 = (num) => Math.round(num * 10) / 10;
+const round2 = (num) => Math.round(num * 100) / 100;
+
 
 export default function MainPage() {
   const { t } = useTranslation();
@@ -19,11 +21,11 @@ export default function MainPage() {
     const setData = async () => {
       const response = await axios.get(routes.getList());
       const { ARS, BYN, EUR, TRY, USD } = response.data.data;
-      setUSDRUB(round(1 / USD.value));
-      setEURRUB(round(1 / EUR.value));
-      setBYNRUB(round(1 / BYN.value));
-      setARSRUB(round(1 / ARS.value));
-      setTRYRUB(round(1 / TRY.value));
+      setUSDRUB(round1(1 / USD.value));
+      setEURRUB(round1(1 / EUR.value));
+      setBYNRUB(round1(1 / BYN.value));
+      setARSRUB(round2(1 / ARS.value));
+      setTRYRUB(round2(1 / TRY.value));
     };
   
     setData();

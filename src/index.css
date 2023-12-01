@@ -73,10 +73,12 @@ button:focus-visible {
   width: 1300px;
   height: 80vh;
   border-radius: 12px;
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.1);
 }
 
 .converter {
+  display: flex;
+  flex-direction: column;
+
   border: 1px solid #ebebee;
   box-shadow: 0 0px 15px rgba(99,91,255, 0.2);
   background: #FAFAFC;
@@ -180,12 +182,19 @@ button:focus-visible {
   }
 
   .converter {
-    height: 300px;
+    height: 250px;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .converter h3 {
+    margin: 0;
   }
 
   .converter-row {
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 0px;
   }
 
   .converter-group {
