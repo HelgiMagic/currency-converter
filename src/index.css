@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Montserrat";
-  src: url(./public/Montserrat-Regular.ttf);
+  src: url(public/Montserrat-Regular.ttf);
 }
 
 * {
@@ -13,7 +13,7 @@
   font-weight: 400;
 
   color: #213547;
-  background-color: #ffffff;
+  --black-border: 1px solid black;
 }
 
 #root {
@@ -38,12 +38,14 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+
+  background: url('public/forest.jpg');
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: white;
 }
 
 button {
@@ -79,16 +81,18 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
 
-  border: 1px solid #ebebee;
-  box-shadow: 0 0px 15px rgba(99,91,255, 0.2);
-  background: #FAFAFC;
+  /*border: var(--black-border);*/
+  background: #27292F;
+  color: white;
   border-radius: 12px;
   height: 20%;
   margin: 20px 10px;
+
+  position: relative;
 }
 
 .converter h3 {
-  color: black;
+  color: white;
   font-weight: 500;
 }
 
@@ -114,10 +118,11 @@ button:focus-visible {
   font-size: 1rem;
   line-height: 1.5;
 
-  color: #495057;
+  color: white;
   background-clip: padding-box;
+  background-color: #26262A;
 
-  border: 2px solid #635bff;
+  border: var(--black-border);
   border-radius: 40px;
 
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -126,32 +131,15 @@ button:focus-visible {
 
 .card {
   display: flex;
-  background-color: white;
-  color: black;
+  background-color: #27292F;
+  color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 200px;
   height: 230px; 
   border-radius: 20px;
-  border: 1px solid rgba(168, 168, 168, 0.3);
   padding: 10px 20px;
-}
-
-.orange {
-  border: 1px solid #ff6b00;
-  box-shadow: 0 0px 15px rgba(255, 107, 0, 0.2);
-}
-
-.blue {
-  border: 1px solid #0077b6;
-  box-shadow: 0 0px 15px rgba(0, 119, 182, 0.2);
-
-}
-
-.red {
-  border: 1px solid #e63946;
-  box-shadow: 0 0px 15px rgba(230, 57, 70, 0.2);
 }
 
 .currencies {
@@ -166,7 +154,6 @@ button:focus-visible {
 }
 
 .card__text {
-  font-weight: 600px;
   font-size: 2rem;
 }
 
@@ -194,7 +181,7 @@ button:focus-visible {
   .converter-row {
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 0px;
+    gap: 0;
   }
 
   .converter-group {
