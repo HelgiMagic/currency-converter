@@ -29,7 +29,7 @@
   --shadow-dark: none;
   --element-background-dark: #27292F;
   --text-color-dark: white;
-  --input-border-dark: 1px solid black;
+  --input-border-dark: 1px solid rgba(0, 0, 0, 0.6);
   --input-background-dark: #26262A;
   --button-background-dark: #ffdd2d;
   --button-color-dark: black;
