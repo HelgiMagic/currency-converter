@@ -1,34 +1,65 @@
 import SelectButton from "./SelectButton";
 import routes from "../routes";
 import axios from "axios";
+import { useState } from "react";
+import { round2 } from "../round";
 //import { useEffect } from "react";
 
+const convert = async (quanity, from, to) => {
+  const response = await axios.get(routes.convert(from, to));
+  const rate = response.data.data[to].value;
+  
+  return quanity * rate;
+}
 
-const func = async () => {
-  const response = await axios.get(routes.getList());
-  const { ARS, BYN, EUR, TRY, USD } = response.data.data;
-  [ARS, BYN, EUR, TRY, USD].forEach((cur) => {
-    rates[`RUB${cur.code}`] = cur.value;
-    rates[`${cur.code}RUB`] = 1 / cur.value;
-  });
+let timeout = null;
 
-  console.log(rates);
-  console.log(response.data.data);
-};
+export default function Converter() {
+  const [left, setLeft] = useState('');
+  const [right, setRight] = useState('');
+  
+  const [leftActive, setLeftActive] = useState('RUB');
+  const [rightActive, setRightActive] = useState('USD');
 
-export default function Converter({ rates }) {
+
+  const handleLeft = async (e) => {
+    setLeft(e.target.value);
+
+    clearTimeout(timeout);
+
+    // Make a new timeout set to go off in 1000ms (1 second)
+    timeout = setTimeout(async () => {
+        const result = await convert(e.target.value, leftActive, rightActive);
+        setRight(round2(result));
+        console.log(result);
+    }, 1000);
+  }
+
+  const handleRight = (e) => {
+    setRight(e.target.value);
+
+    clearTimeout(timeout);
+
+    // Make a new timeout set to go off in 1000ms (1 second)
+    timeout = setTimeout(async () => {
+        const result = await convert(e.target.value, rightActive, leftActive);
+        setLeft(round2(result));
+        console.log(result);
+    }, 1000);
+  }
+
   return (
     <div className='converter'>
       <h3>Перевести</h3>
       <div className='converter-row'>
         <div className='converter-row__group'>
-          <SelectButton>RUB</SelectButton>
-          <input type='text' className='input' />
+          <SelectButton changeOpposite={setRight} active={leftActive} setActive={setLeftActive} oppositeActive={rightActive} value={left} convert={convert}></SelectButton>
+          <input type='text' className='input' onInput={handleLeft} value={left}/>
         </div>
         <h3>в</h3>
         <div className='converter-row__group'>
-          <input type='text' className='input' />
-          <SelectButton>USD</SelectButton>
+          <input type='text' className='input' onInput={handleRight} value={right} />
+          <SelectButton changeOpposite={setLeft} active={rightActive} setActive={setRightActive} oppositeActive={leftActive} value={right} convert={convert}></SelectButton>
         </div>
       </div>
     </div>

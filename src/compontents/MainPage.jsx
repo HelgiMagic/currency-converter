@@ -4,9 +4,7 @@ import Card from "./Card";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import routes from "../routes";
-
-const round1 = (num) => Math.round(num * 10) / 10;
-const round2 = (num) => Math.round(num * 100) / 100;
+import { round1, round2 } from "../round";
 
 
 export default function MainPage() {
