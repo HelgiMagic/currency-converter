@@ -8,36 +8,40 @@
 }
 
 :root {
-  font-family: 'Montserrat', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color: #213547;
 
   /*light theme tokens*/
-  --background-light: url('/mountains.jpg');
+  --background-light: url("/mountains.jpg");
   --shadow-light: 0 0 6px rgba(0, 0, 0, 0.1);
   --element-background-light: white;
   --text-color-light: black;
   --input-border-light: 1px solid #ccc;
   --input-background-light: white;
-  --button-background-light: #26262A;
+  --button-background-light: #26262a;
   --button-color-light: white;
   --dropdown-shadow-light: rgba(0, 0, 0, 0.3);
+  --theme-background-light: linear-gradient(81.4deg,rgba(138, 110, 255, 0.8),rgba(99, 61, 255, 1));;
 
   /*dark theme tokens*/
-  --background-dark: url('/forest.jpg');
+  --background-dark: url("/forest.jpg");
   --shadow-dark: none;
-  --element-background-dark: #27292F;
+  --element-background-dark: #27292f;
   --text-color-dark: white;
   --input-border-dark: 1px solid rgba(0, 0, 0, 0.6);
-  --input-background-dark: #26262A;
+  --input-background-dark: #26262a;
   --button-background-dark: #ffdd2d;
   --button-color-dark: black;
   --dropdown-shadow-dark: rgba(0, 0, 0, 0.9);
+  --theme-background-dark: linear-gradient(81.4deg,rgba(138, 110, 255, 0.3),rgba(99, 61, 255, 0.1));
+
 }
 
-[data-theme='light'] {
+[data-theme="light"] {
   --background: var(--background-light);
   --shadow: var(--shadow-light);
   --element-background: var(--element-background-light);
@@ -47,9 +51,10 @@
   --button-background: var(--button-background-light);
   --button-color: var(--button-color-light);
   --dropdown-shadow: var(--dropdown-shadow-light);
+  --theme-background: var(--theme-background-light);
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --background: var(--background-dark);
   --shadow: var(--shadow-dark);
   --element-background: var(--element-background-dark);
@@ -59,12 +64,12 @@
   --button-background: var(--button-background-dark);
   --button-color: var(--button-color-dark);
   --dropdown-shadow: var(--dropdown-shadow-dark);
+  --theme-background: var(--theme-background-dark);
 }
 
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -190,6 +195,32 @@ button {
   font-size: 2rem;
 }
 
+.changes {
+  margin-top: 120px;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-button {
+  border-radius: 25px;
+  cursor: pointer;
+  border: 0;
+
+  background: var(--theme-background);
+  box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.3);
+  color: var(--text-color);
+
+  width: 180px;
+  height: 50px;
+  
+  font: inherit;
+  font-size: 15px;
+}
+
 @media (max-width: 900px) {
   #root {
     max-width: 100vw;
@@ -226,7 +257,8 @@ button {
     flex-wrap: wrap;
   }
 
-  .drop-down-list, .drop-down {
+  .drop-down-list,
+  .drop-down {
     order: 0;
   }
 
@@ -242,6 +274,10 @@ button {
   .card {
     width: 33vw;
   }
+
+  .changes {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -254,7 +290,6 @@ button {
     width: 45vw;
   }
 }
-
 
 @media (max-width: 420px) {
   .card {

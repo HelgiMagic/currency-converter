@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 const convert = async (quanity, from, to) => {
   const response = await axios.get(routes.convert(from, to));
-  const rate = response.data.data[to].value;
+  const rate = response.data.conversion_rates[to];
   
   return quanity * rate;
 }
@@ -61,7 +61,7 @@ export default function Converter() {
         <h3>{t('to')}</h3>
         <div className='converter-row__group'>
           <input type='text' className='input' onInput={handleRight} value={right} />
-          <SelectButton changeOpposite={setLeft} active={rightActive} setActive={setRightActive} oppositeActive={leftActive} value={right} convert={convert} side="right"></SelectButton>
+          <SelectButton changeOpposite={setRight} active={rightActive} setActive={setRightActive} oppositeActive={leftActive} value={left} convert={convert}></SelectButton>
         </div>
       </div>
     </div>

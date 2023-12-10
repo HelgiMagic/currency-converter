@@ -1,9 +1,9 @@
-const baseurl = 'https://api.currencyapi.com/v3';
-const apikey = 'cur_live_LwCv2iAiygqLQVcVJlD79CGDbvfid78i4GrOgZui';
+const baseurl = 'https://v6.exchangerate-api.com/v6';
+const apikey = '30390484a612c0ce10b14701';
 
 const routes = {
-  convert: (from, to) => `${baseurl}/latest?apikey=${apikey}&base_currency=${from}&currencies=${to}`,
-  getList: () => `${baseurl}/latest?apikey=${apikey}&base_currency=RUB&currencies=USD,EUR,TRY,ARS,BYN`,
+  convert: (from) => `${baseurl}/${apikey}/latest/${from}`,
+  getList: () => `${baseurl}/${apikey}/latest/RUB`,
   getData: () => '/api/v1/data',
 };
 
