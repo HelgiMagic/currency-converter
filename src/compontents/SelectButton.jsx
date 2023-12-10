@@ -1,9 +1,22 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { round2 } from "../round";
 
-export default function SelectButton({ changeOpposite, active, setActive, oppositeActive, value, convert }) {
+export default function SelectButton({ changeOpposite, active, setActive, oppositeActive, value, convert, side }) {
   const [isOpen, setOpen] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("click", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("click", checkIfClickedOutside);
+    };
+  }, [setOpen]);
 
   const clickHandle = () => {
     setOpen(!isOpen);
@@ -13,7 +26,7 @@ export default function SelectButton({ changeOpposite, active, setActive, opposi
     console.log(e.target.textContent)
     setActive(e.target.textContent);
     
-    if (value === '') return;
+    if (value === '' || side === 'right') return;
   
     const result = await convert(value, e.target.textContent, oppositeActive);
     changeOpposite(round2(result));
@@ -22,7 +35,7 @@ export default function SelectButton({ changeOpposite, active, setActive, opposi
   const menuClass = `drop-down-list ${isOpen ? "active" : ""}`;
 
   return (
-    <div className='drop-down'>
+    <div className='drop-down' ref={ref}>
       <button className='chronicle-button' onClick={clickHandle}>
         <span>
           <em>{active}</em>

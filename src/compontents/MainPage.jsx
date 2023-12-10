@@ -36,11 +36,11 @@ export default function MainPage() {
       <div className='container'>
         <Converter />
         <div className='currencies'>
-          <Card color='orange'>{USDRUB}</Card>
-          <Card color='blue'>{EURRUB}</Card>
-          <Card color='red'>{BYNRUB}</Card>
-          <Card color='orange'>{ARSRUB}</Card>
-          <Card color='blue'>{TRYRUB}</Card>
+          <Card name='USD'>{USDRUB}</Card>
+          <Card name='EUR'>{EURRUB}</Card>
+          <Card name='BYN'>{BYNRUB}</Card>
+          <Card name='ARS'>{ARSRUB}</Card>
+          <Card name='TRY'>{TRYRUB}</Card>
         </div>
       </div>
     </>

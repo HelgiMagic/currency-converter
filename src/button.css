@@ -9,7 +9,7 @@
   cursor: pointer;
   border: 0;
   background: var(--button-background);
-  width: 150px;
+  width: 100%;
   
   transition: background .4s linear;
   will-change: background;

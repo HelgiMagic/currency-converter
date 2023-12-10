@@ -2,8 +2,8 @@ export default {
   translation: {
     converter: 'Конвертер валют',
     manyEquals: 'равен равен равен равен равен равен равен равен равен равен',
-    rename: 'Переименовать',
-    invalidName: 'Неверные имя пользователя или пароль',
+    convert: 'Перевести',
+    to: 'в',
     enter: 'Войти',
     yourName: 'Ваш ник',
     yourPassword: 'Ваш пароль',

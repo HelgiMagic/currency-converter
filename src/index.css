@@ -218,6 +218,7 @@ button {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 0;
+    padding: 0 20px;
   }
 
   .converter-group {
@@ -225,8 +226,7 @@ button {
     flex-wrap: wrap;
   }
 
-  .chronicle-button {
-    width: 40% !important;
+  .drop-down-list, .drop-down {
     order: 0;
   }
 
@@ -252,5 +252,13 @@ button {
 
   .card {
     width: 45vw;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .card {
+    width: 45vw;
+    padding: 10px 5px;
   }
 }

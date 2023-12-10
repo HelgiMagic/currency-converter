@@ -3,6 +3,7 @@ import routes from "../routes";
 import axios from "axios";
 import { useState } from "react";
 import { round2 } from "../round";
+import { useTranslation } from "react-i18next";
 //import { useEffect } from "react";
 
 const convert = async (quanity, from, to) => {
@@ -15,6 +16,7 @@ const convert = async (quanity, from, to) => {
 let timeout = null;
 
 export default function Converter() {
+  const { t } = useTranslation();
   const [left, setLeft] = useState('');
   const [right, setRight] = useState('');
   
@@ -50,16 +52,16 @@ export default function Converter() {
 
   return (
     <div className='converter'>
-      <h3>Перевести</h3>
+      <h3>{t('convert')}</h3>
       <div className='converter-row'>
         <div className='converter-row__group'>
           <SelectButton changeOpposite={setRight} active={leftActive} setActive={setLeftActive} oppositeActive={rightActive} value={left} convert={convert}></SelectButton>
           <input type='text' className='input' onInput={handleLeft} value={left}/>
         </div>
-        <h3>в</h3>
+        <h3>{t('to')}</h3>
         <div className='converter-row__group'>
           <input type='text' className='input' onInput={handleRight} value={right} />
-          <SelectButton changeOpposite={setLeft} active={rightActive} setActive={setRightActive} oppositeActive={leftActive} value={right} convert={convert}></SelectButton>
+          <SelectButton changeOpposite={setLeft} active={rightActive} setActive={setRightActive} oppositeActive={leftActive} value={right} convert={convert} side="right"></SelectButton>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 export default {
   translation: {
-    converter: 'Конвертер валют',
+    converter: 'Currency converter',
     manyEquals: 'equals equals equals equals equals equals equals equals equals equals',
-    rename: 'Переименовать',
-    invalidName: 'Неверные имя пользователя или пароль',
+    convert: 'Convert',
+    to: 'to',
     enter: 'Войти',
     yourName: 'Ваш ник',
     yourPassword: 'Ваш пароль',
