@@ -1,4 +1,4 @@
-### What is it?
+## What is it?
 
 A simple and beautiful currency converter. Specially for you.
 
@@ -6,14 +6,14 @@ It has support for dark and white theme, and also supports Russian and English.
 
 ![Alt text](public/website.png)
 
-### How do I start using the project?
+## How do I start using the project?
 
-## Use it simple way
+### Use it simple way
 Just go to this website:
 
 https://currency-converter-w2ys.onrender.com/ 
 
-## Or do it the hard way
+### Or do it the hard way
 
 1. Install [node.js](https://nodejs.org/). Use the instructions on the website.
 2. Copy the repository to your computer using git clone:
