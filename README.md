@@ -4,8 +4,7 @@ A simple and beautiful currency converter. Specially for you.
 
 It has support for dark and white theme, and also supports Russian and English.
 
-![image_2023-07-26_15-07-33](https://github.com/HelgiMagic/frontend-project-11/assets/113669521/92fd886a-d922-4e7c-84fb-871ecb984315)
-
+![Alt text](public/website.png)
 
 ### How do I start using the project?
 
@@ -30,7 +29,3 @@ npm ci
 npm run build
 ```
 5. Go to the 'dist' folder and open the file index.html to use a ready-made website.
-
-### What does it look like?
-
-![Alt text](public/website.png)
