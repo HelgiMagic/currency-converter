@@ -61,7 +61,7 @@ export default function Converter() {
         <h3>{t('to')}</h3>
         <div className='converter-row__group'>
           <input type='text' className='input' onInput={handleRight} value={right} />
-          <SelectButton changeOpposite={setRight} active={rightActive} setActive={setRightActive} oppositeActive={leftActive} value={left} convert={convert}></SelectButton>
+          <SelectButton changeOpposite={setRight} active={rightActive} setActive={setRightActive} oppositeActive={leftActive} value={left} convert={convert} side='right'></SelectButton>
         </div>
       </div>
     </div>

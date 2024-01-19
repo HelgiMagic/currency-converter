@@ -23,10 +23,18 @@ export default function SelectButton({ changeOpposite, active, setActive, opposi
   };
 
   const handleSelect = async (e) => {
-    console.log(e.target.textContent)
     setActive(e.target.textContent);
     
-    if (value === '' || side === 'right') return;
+    if (value === '') return;
+    if (side === 'right') {
+      const result = await convert(value, oppositeActive, e.target.textContent);
+      changeOpposite(round2(result));
+      return;
+    }
+  
+    console.log(value);
+    console.log(e.target.textContent);
+    console.log(oppositeActive);
   
     const result = await convert(value, e.target.textContent, oppositeActive);
     changeOpposite(round2(result));
